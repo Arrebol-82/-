@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Account Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Local only, no network</p>
+      <h1>Simple Account Manager</h1>
+      <p class="subhead">Practice app to add accounts and quickly search them with live suggestions.</p>
+    </header>
+
+    <section class="panel search-panel">
+      <div class="panel-head">
+        <div>
+          <p class="label">Search</p>
+          <h2>Find a saved account</h2>
+          <p class="hint">Type to see matching software names instantly.</p>
+        </div>
+      </div>
+      <div class="search-area">
+        <label class="field-label" for="searchInput">Software name</label>
+        <div class="search-wrapper">
+          <input id="searchInput" type="text" placeholder="Search by software name..." autocomplete="off">
+          <div id="suggestions" class="suggestions"></div>
+        </div>
+      </div>
+      <div id="detailPanel" class="detail-panel">
+        <p class="muted">Select a record from the suggestions to view details.</p>
+      </div>
+    </section>
+
+    <section class="panel form-panel">
+      <div class="panel-head">
+        <div>
+          <p class="label">Insert</p>
+          <h2>Add a new record</h2>
+          <p class="hint">Software, account, and password are required.</p>
+        </div>
+      </div>
+      <form id="addForm" class="form">
+        <div class="field">
+          <label for="softwareInput">Software / Website</label>
+          <input id="softwareInput" type="text" required>
+        </div>
+        <div class="field">
+          <label for="accountInput">Account</label>
+          <input id="accountInput" type="text" required>
+        </div>
+        <div class="field">
+          <label for="passwordInput">Password</label>
+          <input id="passwordInput" type="password" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Add</button>
+          <button type="button" id="clearBtn" class="btn ghost">Clear</button>
+        </div>
+      </form>
+      <div class="data-actions">
+        <div>
+          <p class="label">Backup</p>
+          <p class="hint">Export all records to JSON or import from a file.</p>
+        </div>
+        <div class="data-buttons">
+          <button type="button" id="exportBtn" class="btn ghost">Export data</button>
+          <button type="button" id="importBtn" class="btn neutral">Import data</button>
+          <input id="importFile" type="file" accept="application/json" hidden>
+        </div>
+      </div>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </main>
+</body>
+</html>
